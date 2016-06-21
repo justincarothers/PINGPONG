@@ -9,25 +9,24 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <body>
-    <div id="big">
-      <form id="formInput">
-        <fieldset class="form-group">
-          <label for="formGroupExampleInput"><h1>Do you has a <em>ping</em> pongs?</h1></label>
-          <input type="number" class="form-control" id="numberInput" placeholder="test your pings and pongs">
-          <br>
-          <button type="submit" class="btn-lg btn-success">SUBMIT</button>
-        </fieldset>
+    <div class="header">
+      <h1>Ping Pong</h1>
+    </div>
+    <div class="content">
+      <h2>Lets Play!</h2>
+      <ul>
+        <li>Numbers divisible by 3 become "ping"</li>
+        <li>Numbers divisible by 5 become "pong"</li>
+        <li>Numbers divisible by 3 and 5 become "pingpong"</li>
+      </ul>
+      <form id="pingpong">
+        <input type="number" id="input">
+        <input type="submit" value="Ping Pong">
       </form>
-
-      <div id="tryAgain">
-        <button id="tryAgain" type="submit" class="btn-lg btn-success">TRY AGAIN?</button>
-      </div>
-      <div id="score">
-        <h1>SCORE</h1><hr>
-      </div>
-      <div id="output">
-          <p><span class="word"></span></p>
-      </div>
+    </div>
+    <div class="output">
+      <ul>
+      </ul>
     </div>
   </body>
   <script src="js/main.js" charset="utf-8"></script>

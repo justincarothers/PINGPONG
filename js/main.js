@@ -1,49 +1,30 @@
-function pingPongTest(input) {
-  var pings = 0;
-  var pongs = 0;
-  var pingpongs = 0;
-
-  $("#output li").remove();
-  for (var i = 1; i-1 < input; i++) {
-    if (i % 15 === 0 ) {
-      $("#output").append("<p><em><strong> PING-PONG!!!!</em></strong></p>");
-      pingpongs++;
-    } else if (i % 5 === 0) {
-      $("#output").append("<p> PONG!!</p>");
-      pongs++;
-    } else if (i % 3 === 0) {
-      $("#output").append("<p> PING </p>");
-      pings++;
-    } else {
-      $("#output").append("<p>" + i + "</p>");
+function pingPong(number) {
+  var output = [];
+  for(var index = 1; index <= number; index++) {
+    var element = index;
+    if( element%15 === 0 ) {
+      element = 'pingpong';
+    } else if( element%3 === 0 ){
+      element = 'ping';
+    } else if( element%5 === 0 ) {
+      element = 'pong';
     }
+    output.push(element);
   }
-  $("#score").append("<h1>pings: " +pings + "</h1>");
-  $("#score").append("<br><h1>pings: " +pongs + "</h1>");
-  $("#score").append("<br><h1>pingpongs: " +pingpongs + "<br><hr></h1>");
+  return output;
 }
+
 $(document).ready(function() {
-  $("#output").hide();
-  $("#tryAgain").hide();
-  $("#score").hide();
+  $('form#pingpong').submit(function(event) {
+    $('.output ul').html('');
+    var output = pingPong($('#input').val());
+    if(output.length > 0) {
+      output.forEach(function(number) {
+        $('.output ul').append('<li>' + number + '</li>');
+      });
+    }
 
-  $("form#formInput").submit(function(event) { /*submit button + function*/
+    $('#input').val('');
     event.preventDefault();
-    var formInput = $("input#numberInput").val();
-    $("#formInput").slideUp(600);
-    $("#output").fadeIn(2000);
-    pingPongTest(formInput);
-    $("#score").show();
-    $("#tryAgain").fadeIn(8000)
   });
-
-  $("#tryAgain").click(function() { /*try again button*/
-    $("#output p").remove();
-    $("#score h1").remove();
-    $("#tryAgain").hide();
-    $("#score").hide();
-    $("#output").hide();
-    $("#formInput").slideDown(600);
-  });
-
 });
